@@ -21,15 +21,24 @@
     },
     methods: {
       getCard(){
-        const cardUrl= store.baseUrl + store.endpoint
+        const cardUrl= store.baseUrl + store.cardEndpoint
         axios.get(cardUrl).then((res) => {
-          store.CardList = res.data.data
-          console.log(store.CardList)
+          store.CardList = [...res.data.data]
+          
+          
+        })
+      },
+      getType(){
+        const typeUrl= store.baseUrl + store.typeEndpoint
+        axios.get(typeUrl).then((res) => {
+          store.TypeList = [...res.data]
+          
         })
       }
     },
     mounted(){
       this.getCard()
+      this.getType()
     }
     
   }

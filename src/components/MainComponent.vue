@@ -1,7 +1,7 @@
 <template>
     <main class="container">
-        <select name="type" id="type" class="mb-2">
-            <option value="Alien">Alien</option>
+        <select name="atype" id="atype" class="mb-2">
+            <option v-for="type in store.TypeList" :value="type.archetype_name"> {{ type.archetype_name }} </option>
         </select>
         <section id="card-list" class="p-3 row bg-danger">
             <CardComponent v-if="store.CardList.length == 50"  v-for="card in store.CardList" :card = "card"></CardComponent>
