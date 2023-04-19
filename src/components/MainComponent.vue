@@ -4,8 +4,7 @@
             <option v-for="type in store.TypeList" :value="type.archetype_name"> {{ type.archetype_name }} </option>
         </select>
         <section id="card-list" class="p-3 row bg-danger">
-            <CardComponent v-if="store.CardList.length == 50"  v-for="card in store.CardList" :card = "card"></CardComponent>
-            <div v-else>hold up</div>
+            <CardComponent   v-for="card in store.CardList" :card = "card"></CardComponent>
         </section>
     </main>
 </template>

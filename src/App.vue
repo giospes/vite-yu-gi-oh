@@ -22,13 +22,15 @@
     methods: {
       getCard(){
         const cardUrl= store.baseUrl + store.cardEndpoint + store.filter
-        console.log(cardUrl)
+        store.loaded = false;
         axios.get(cardUrl).then((res) => {
           store.CardList = [...res.data.data]
+          store.loaded = true
         })
       },
       getType(){
         const typeUrl= store.baseUrl + store.typeEndpoint
+        store.loaded = false;
         axios.get(typeUrl).then((res) => {
           store.TypeList = [...res.data]
           

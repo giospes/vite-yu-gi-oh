@@ -11,18 +11,19 @@
     props: ['card'],  
     data(){
       return{
-        imgUrl : ''
+      
       }
     },
     methods:{
-      getImgUrl() {
-        const imgArray = [...this.card.card_images]
-        this.imgUrl = imgArray[0].image_url
-      }
+      
     },
-    mounted(){
-      this.getImgUrl()
+    computed : {
+      imgUrl() {
+        const imgArray = [...this.card.card_images]
+        return imgArray[0].image_url
+      }
     }
+    
   }
 </script>
 
