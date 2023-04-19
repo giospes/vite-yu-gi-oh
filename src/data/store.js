@@ -5,5 +5,6 @@ export const store = reactive({
     TypeList: [], 
     baseUrl: 'https://db.ygoprodeck.com/api/v7/',
     cardEndpoint: 'cardinfo.php?num=50&offset=0',
-    typeEndpoint: 'archetypes.php?'
+    typeEndpoint: 'archetypes.php?',
+    filter: ""
 })

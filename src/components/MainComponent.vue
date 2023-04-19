@@ -1,6 +1,6 @@
 <template>
     <main class="container">
-        <select name="atype" id="atype" class="mb-2">
+        <select name="type" id="type" class="mb-2" v-model="select" @change="filterbyArchetypes($event)">
             <option v-for="type in store.TypeList" :value="type.archetype_name"> {{ type.archetype_name }} </option>
         </select>
         <section id="card-list" class="p-3 row bg-danger">
@@ -21,7 +21,16 @@
         },
         data(){
             return{
-                store
+                store,
+                select: ''
+
+            }
+        },
+        methods:{
+            filterbyArchetypes(event){
+                this.store.filter = '&archetype=' + event.target.value
+                console.log(this.store.filter)
+                this.$emit('changeSelect')
             }
         }
 
