@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent  ></HeaderComponent>
-  <MainComponent @change-select="filterCard()"></MainComponent>
+  <MainComponent @change-select="getCard()"></MainComponent>
 </template>
 
 <script>
@@ -21,7 +21,7 @@
     },
     methods: {
       getCard(){
-        const cardUrl= store.baseUrl + store.cardEndpoint 
+        const cardUrl= store.baseUrl + store.cardEndpoint + store.filter
         console.log(cardUrl)
         axios.get(cardUrl).then((res) => {
           store.CardList = [...res.data.data]
@@ -32,13 +32,6 @@
         axios.get(typeUrl).then((res) => {
           store.TypeList = [...res.data]
           
-        })
-      },
-      filterCard(){
-        const cardUrl= store.baseUrl + store.cardEndpoint + store.filter
-        console.log(cardUrl)
-        axios.get(cardUrl).then((res) => {
-          store.CardList = [...res.data.data]
         })
       }
     },
